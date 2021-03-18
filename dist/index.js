@@ -120,8 +120,8 @@ const core = __webpack_require__(470);
 async function run() {
   try {
     const ref = process.env.GITHUB_REF.split("/").slice(2).join("/");
-    const target = process.env.GITHUB_BASE_REF.split("/").slice(2).join("/");
-    const source = process.env.GITHUB_HEAD_REF.split("/").slice(2).join("/");
+    const target = process.env.GITHUB_BASE_REF;
+    const source = process.env.GITHUB_HEAD_REF;
     core.exportVariable("REF_BRANCH", ref);
     core.exportVariable("TARGET_BRANCH", target);
     core.exportVariable("SOURCE_BRANCH", source);

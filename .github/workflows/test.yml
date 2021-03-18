@@ -1,6 +1,11 @@
 name: "test"
-on: push
-
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -13,7 +18,13 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
+      - uses: actions/checkout@v1
+      - run: npm ci
       - uses: ./
+      - run: echo $GITHUB_REF
+      - run: echo $GITHUB_BASE_REF
+      - run: echo $GITHUB_HEAD_REF
+      - run: echo $GITHUB_EVENT_NAME
       - run: echo $CURRENT_BRANCH
       - run: echo $TARGET_BRANCH
       - run: echo $SOURCE_BRANCH
