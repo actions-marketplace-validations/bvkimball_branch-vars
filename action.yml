@@ -1,0 +1,8 @@
+name: "Get branch vars"
+description: "Export branch names as environment variables"
+branding:
+  icon: "git-pull-request"
+  color: "orange"
+runs:
+  using: "node12"
+  main: "dist/index.js"

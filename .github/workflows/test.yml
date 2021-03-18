@@ -1,0 +1,19 @@
+name: "test"
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: npm ci
+      - uses: ./
+      - run: echo $CURRENT_BRANCH
+  testpr:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: ./
+      - run: echo $CURRENT_BRANCH
+      - run: echo $TARGET_BRANCH
+      - run: echo $SOURCE_BRANCH
