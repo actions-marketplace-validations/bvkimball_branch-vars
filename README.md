@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - run: npm ci
-    - uses: bvkimball/branch-vars@v1.0.0
+    - uses: bvkimball/branch-vars@1.0.0
     # Use branch name for whatever purpose
     - run: echo ${CURRENT_BRANCH}
 ```
